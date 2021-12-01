@@ -13,3 +13,5 @@ else
 $page="home"; //page d'accueil du site
 
 require_once(PATH_CONTROLLERS.$page.'.php');
+
+?>
