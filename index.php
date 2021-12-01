@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['Id'])){
+	$_SESSION['Id'] = uniqid();
+	$_SESSION['admin'] = false;
+	$_SESSION['connected'] = false;
+}
+echo($_SESSION['Id']);
+
 require_once ('./config/configuration.php');
 
 if(isset($_GET['page']))
@@ -12,6 +21,6 @@ if(isset($_GET['page']))
 else
 $page="home"; //page d'accueil du site
 
-require_once(PATH_CONTROLLERS.$page.'.php');
 
+require_once(PATH_CONTROLLERS.$page.'.php');
 ?>

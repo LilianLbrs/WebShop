@@ -17,27 +17,18 @@
 
 
   	//Etape 1 : 
-	$requete = "SELECT * FROM logins WHERE username = ? and password = ? ";
+	$requete = "SELECT P.name, P.price, P.image, O.quantity FROM products P JOIN orderitems O ON (P.id = O.product_id) WHERE O.order_id = (SELECT id FROM orders WHERE customer_id = ? AND status = 0);";
 	$donnees = array(
-				$username,
-				$password,
+				$_SESSION['Id'],
 				);
-  	
   	
 	try 
 	{
 		$query = $bdd->prepare($requete);
 		$query->execute($donnees);
 		
-		if($resultats = $query->fetch(PDO::FETCH_ASSOC)){
-			header('Location: index.php?page=home');
-			$_SESSION['Id'] = $username;
-			$_SESSION['admin'] = false;
-			$_SESSION['connected'] = true;
-		}
-
+		$resultatsItems = $query->fetchAll();
 	}
-	
 	catch(PDOException $e) //Si le try ne fonctionne pas alors une erreur query est notifié
 	{
         if(DEBUG)die ('Erreur : '.$e->getMessage());

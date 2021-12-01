@@ -17,27 +17,18 @@
 
 
   	//Etape 1 : 
-	$requete = "SELECT * FROM logins WHERE username = ? and password = ? ";
+	$requete = "SELECT * FROM products WHERE id = ?";
 	$donnees = array(
-				$username,
-				$password,
+				$productId,
 				);
-  	
   	
 	try 
 	{
 		$query = $bdd->prepare($requete);
 		$query->execute($donnees);
 		
-		if($resultats = $query->fetch(PDO::FETCH_ASSOC)){
-			header('Location: index.php?page=home');
-			$_SESSION['Id'] = $username;
-			$_SESSION['admin'] = false;
-			$_SESSION['connected'] = true;
-		}
-
+		$resultatsProduct = $query->fetchAll();
 	}
-	
 	catch(PDOException $e) //Si le try ne fonctionne pas alors une erreur query est notifié
 	{
         if(DEBUG)die ('Erreur : '.$e->getMessage());
