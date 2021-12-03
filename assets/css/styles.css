@@ -122,3 +122,42 @@ a:visited {
 	/* align-items: self-start; */
 	width: min-content;
 }
+
+/** Product **/
+
+#product{
+	display: flex;
+}
+
+#product img{
+	height: 300px;
+	width: 300px;
+	padding: 10px;
+	box-shadow: 7px 5px 5px grey;
+}
+
+#product div{
+	margin-left: 20px;
+	margin-top: 30px;
+}
+
+#product div > *{
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+/** Cart **/
+
+
+
+#item img{
+	height: 100px;
+	width: 100px;
+	padding: 10px;
+	box-shadow: 7px 5px 5px grey;
+}
+
+#item td, #item th{
+	padding-right: 100px;
+}
+
