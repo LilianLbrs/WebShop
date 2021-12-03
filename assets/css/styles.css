@@ -4,14 +4,121 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
+html, body {
+	margin:0px;
+	height:100%;
+  }
+
 .header {
-	height: 50px;
-	background-color: #858786;
+	height: 70px;
+	background-color: #333333;
 	text-align: center;
 	text-transform: uppercase;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: end;
+	font-size: 30px;
 }
 
 .footer {
 	height: 50px;
 	background-color: #858786;
+}
+
+/** Menu **/
+
+.menu{
+	display: flex;
+	background-color: #EEEEEE;
+	justify-content: center;
+	align-items: center;
+}
+
+.menu > *{
+	margin: 5px;
+}
+
+.menu a{
+	font-weight: bold;
+}
+
+.home{
+	display: flex;
+	/* height: 100%; */
+	/* height: -webkit-fill-available; */
+}
+
+
+
+.content{
+	margin: 40px;
+}
+
+.content > * {
+	padding: 2px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+a{
+	color:inherit;
+}
+
+a:link {
+	text-decoration: none;
+}
+  
+a:visited {
+	text-decoration: none;
+}
+
+/** Products **/
+.product{
+	display: flex;
+}
+
+.product img{
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+	box-shadow: 7px 5px 5px grey;
+}
+
+.product div{
+	margin-left: 30px;
+	margin-top: 15px;
+}
+
+.product div > *{
+	margin-bottom: 7px;
+}
+
+/** Bar **/
+
+.bar{
+	background-color: #EEEEEE;
+	width: 20%;
+	padding-top: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.bar ul{
+	margin-top: 10px;
+    margin-left: 40px;
+}
+
+.bar .divider{
+	height: 1px;
+	background-color: black;
+	margin: 10px 0px 10px 0px;
+}
+
+/** Account **/
+.content form{
+	display: flex;
+	flex-direction: column;
+	/* align-items: self-start; */
+	width: min-content;
 }

@@ -6,7 +6,6 @@ if(!isset($_SESSION['Id'])){
 	$_SESSION['admin'] = false;
 	$_SESSION['connected'] = false;
 }
-echo($_SESSION['Id']);
 
 require_once ('./config/configuration.php');
 
