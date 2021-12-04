@@ -12,8 +12,9 @@
         ?>
 
             <div class="product">
-
-                <img src="<?= PATH_IMAGES . $product['image'] ?>">
+                <a href="index.php?page=product&product=<?= $product['id'] ?>">
+                    <img src="<?= PATH_IMAGES . $product['image'] ?>" alt="Visiter la page de <?= $product['name'] ?>" >
+                </a>
 
                 <div>
                     <h1><?= $product['name'] ?></h1>

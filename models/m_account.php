@@ -20,7 +20,7 @@
 	$requete = "SELECT * FROM logins WHERE username = ? and password = ? ";
 	$donnees = array(
 				$username,
-				$password,
+				sha1($password),
 				);
   	
   	

@@ -12,7 +12,8 @@
 
     <?php
     if ($_SESSION['connected'] == true) {?>
-    <p>Bonjour <?=$_SESSION['name']?></p><a href="">Logout</a>
+    <p>Bonjour <?=$_SESSION['name']?></p>
+    <a href="">Logout</a>
     <?php
     } else { ?>
         <a href="index.php?page=account">Login</a>
