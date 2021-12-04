@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['Id'])){
-	$_SESSION['Id'] = uniqid();
+if(!isset($_SESSION['id'])){
+	$_SESSION['customer_id'] = 0;
+	$_SESSION['id'] = uniqid();
 	$_SESSION['admin'] = false;
 	$_SESSION['connected'] = false;
 }

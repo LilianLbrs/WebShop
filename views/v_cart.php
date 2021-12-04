@@ -6,7 +6,6 @@
 <div class="home">
     <?php require_once(PATH_VIEWS . 'bar.php'); ?>
 
-
     <div class="content">
 
         <table id="item">

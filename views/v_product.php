@@ -14,9 +14,9 @@
             <p><?= $resultProduct["description"] ?></p>
             <p><?= $resultProduct["price"] ?>€</p>
 
-            <form action="index.php?page=cart&product=<?=$resultProduct["id"]?>" method="POST">
+            <form action="index.php?page=cart&add=true&product=<?=$resultProduct["id"]?>" method="POST">
                 <label for="quantity">Quantité</label>
-                <input id="quantity" type="number" value="1" min="1">
+                <input name="quantity" id="quantity" type="number" value="1" min="1">
                 <input type="submit" value="Ajouter au panier">
             </form>
 

@@ -18,9 +18,7 @@
 
   	//Etape 1 : 
 	$requete = "SELECT * FROM orders ORDER BY date";
-	$donnees = array(
-				
-				);
+	$donnees = array();
   	
   	
 	try 

@@ -31,7 +31,7 @@
 		
 		if($resultats = $query->fetch(PDO::FETCH_ASSOC)){
 			header('Location: index.php?page=orders');
-			$_SESSION['Id'] = $username;
+			$_SESSION['amdin_id'] = $username;
 			$_SESSION['admin'] = true;
 			$_SESSION['connected'] = true;
 		}

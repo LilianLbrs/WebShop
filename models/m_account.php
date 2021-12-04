@@ -31,7 +31,7 @@
 		
 		if($resultats = $query->fetch(PDO::FETCH_ASSOC)){
 			header('Location: index.php?page=home');
-			$_SESSION['id'] = $resultats['id'];
+			$_SESSION['customer_id'] = $resultats['id'];
 			$_SESSION['name'] = $username;
 			$_SESSION['admin'] = false;
 			$_SESSION['connected'] = true;
