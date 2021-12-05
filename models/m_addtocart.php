@@ -50,7 +50,7 @@ if (!isset($order_id)) {
     }
 
     //Etape 3 : récupérer order_id
-    $requete = 'SELECT id FROM orders  WHERE customer_id = ? AND session= ? AND status = 0)';
+    $requete = 'SELECT id FROM orders  WHERE customer_id = ? AND session= ? AND status = 0';
     $donnees = array(
         $_SESSION['customer_id'],
         $_SESSION['id'],
@@ -69,8 +69,36 @@ if (!isset($order_id)) {
     }
 }
 
+//Etape 4 : on vérifie si on a déja cet article dans le panier
+$requete = 'SELECT quantity FROM ORDERITEMS WHERE order_id = ? AND product_id = ?';
+$donnees = array(
+    $order_id,
+    $productId,
+);
 
-//Etape 4 : ajouter des items à la commande
+try {
+    $query = $bdd->prepare($requete);
+    $query->execute($donnees);
+    if ($resultats = $query->fetch(PDO::FETCH_ASSOC)) {
+        $quantity += $resultats['quantity'];
+        //On modifie l'ancienne quantité du produit par la nouvelle
+        $requete = 'UPDATE ORDERITEMS SET quantity = ?  WHERE order_id = ? AND product_id = ?';
+        $donnees = array(
+            $quantity,
+            $order_id,
+            $productId,
+        );
+        $query = $bdd->prepare($requete);
+        $query->execute($donnees);
+        return;
+    }
+
+} catch (PDOException $e) {
+    if (DEBUG) die('Erreur : ' . $e->getMessage());
+}
+
+
+//Etape 4 : sinon ajouter des items à la commande
 $requete = 'INSERT INTO ORDERITEMS (order_id, product_id, quantity) VALUES (?,?,?)';
 $donnees = array(
     $order_id,

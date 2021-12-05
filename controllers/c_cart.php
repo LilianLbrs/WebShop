@@ -12,9 +12,6 @@ if (isset($_GET['product']) && isset($_POST['quantity'])) {
     elseif (isset($_GET['remove']))
         require_once(PATH_MODELS . 'removefromcart.php');
 }
-
 require_once(PATH_MODELS . $page . '.php');
-
-
 //appel de la vue
 require_once(PATH_VIEWS . $page . '.php');

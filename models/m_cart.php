@@ -22,6 +22,10 @@ try {
 	$query->execute($donnees);
 
 	$resultatsItems = $query->fetchAll();
+	$total = 0;
+	foreach ($resultatsItems as $item) {
+		$total += $item['price'] * $item['quantity'];
+	}
 } catch (PDOException $e) //Si le try ne fonctionne pas alors une erreur query est notifié
 {
 	if (DEBUG) die('Erreur : ' . $e->getMessage());

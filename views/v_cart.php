@@ -23,7 +23,7 @@
                 ?>
                     <tr>
                         <td>
-                            <img src="<?= PATH_IMAGES . $item['image'] ?>" alt="">
+                            <img src="<?= PATH_IMAGES . $item['image'] ?>" alt="<?= $item['name'] ?>">
                         </td>
                         <td>
                             <p><b><?= $item['name'] ?></b></p>
@@ -32,7 +32,7 @@
                             <p><?= $item['price'] ?>€</p>
                         </td>
                         <td>
-                            <hp1><?= $item['quantity'] ?></p>
+                            <p><?= $item['quantity'] ?></p>
                         </td>
 
                     </tr>
@@ -41,9 +41,8 @@
                 ?>
             </tbody>
         </table>
-
-
-
+        
+        <p><b> Total: <?= $total ?>€ </b></p>
 
     </div>
 </div>
