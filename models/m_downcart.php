@@ -1,5 +1,4 @@
 <?php
-
 // accès base de données
 // connection à la base de données
 try {
@@ -11,8 +10,9 @@ try {
 	$alert = 'connexion à la base de données';
 }
 
-$requete = "SELECT P.name, P.price, P.image, O.quantity, P.id FROM products P JOIN orderitems O ON (P.id = O.product_id) WHERE O.order_id = (SELECT id FROM orders WHERE customer_id = ? AND session= ? AND status = 0)";
+$requete = "UPDATE orderitems SET quantity=quantity-1 WHERE product_id = ? AND order_id = (SELECT id FROM orders WHERE customer_id = ? AND session= ? AND status = 0)";
 $donnees = array(
+	$productId,
 	$_SESSION['customer_id'],
 	$_SESSION['id']
 );
@@ -21,11 +21,7 @@ try {
 	$query = $bdd->prepare($requete);
 	$query->execute($donnees);
 
-	$resultatsItems = $query->fetchAll();
-	$total = 0;
-	foreach ($resultatsItems as $item) {
-		$total += $item['price'] * $item['quantity'];
-	}
+	
 } catch (PDOException $e) //Si le try ne fonctionne pas alors une erreur query est notifié
 {
 	if (DEBUG) die('Erreur : ' . $e->getMessage());

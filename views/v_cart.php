@@ -34,6 +34,14 @@
                         <td>
                             <p><?= $item['quantity'] ?></p>
                         </td>
+                        <td>
+                            <a href="<?= "index.php?page=cart&up=true&product=".$item['id'] ?>"><button>+</button></a>
+                            <a href="<?= "index.php?page=cart&down=true&product=".$item['id'] ?>"><button>-</button></a>
+                        </td>
+
+                        <td>
+                            <a href="<?= "index.php?page=cart&remove=true&product=".$item['id'] ?>"><button>x</button></a>
+                        </td>
 
                     </tr>
                 <?php
@@ -41,8 +49,9 @@
                 ?>
             </tbody>
         </table>
-        
+
         <p><b> Total: <?= $total ?>€ </b></p>
+        <a href="index.php?page=shipping"><button>Aller à la caisse</button></a>
 
     </div>
 </div>
