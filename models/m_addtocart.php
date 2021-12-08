@@ -79,7 +79,7 @@ $donnees = array(
 try {
     $query = $bdd->prepare($requete);
     $query->execute($donnees);
-    if ($resultats = $query->fetch(PDO::FETCH_ASSOC)) {
+    if ($resultats = $query->fetch(PDO::FETCH_ASSOC)) { // Si on a un résultat
         $quantity += $resultats['quantity'];
         //On modifie l'ancienne quantité du produit par la nouvelle
         $requete = 'UPDATE ORDERITEMS SET quantity = ?  WHERE order_id = ? AND product_id = ?';

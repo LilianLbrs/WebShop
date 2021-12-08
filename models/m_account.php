@@ -9,8 +9,8 @@
   }
   catch(PDOException $e)
   { 
-        if(DEBUG)
-                die ('Erreur : '.$e->getMessage());
+	if(DEBUG)
+		die ('Erreur : '.$e->getMessage());
 	$alert = 'connexion à la base de données';
   }
 
@@ -30,17 +30,55 @@
 		$query->execute($donnees);
 		
 		if($resultats = $query->fetch(PDO::FETCH_ASSOC)){
-			header('Location: index.php?page=home');
-			$_SESSION['customer_id'] = $resultats['id'];
+			$_SESSION['customer_id'] = $resultats['customer_id'];
 			$_SESSION['name'] = $username;
 			$_SESSION['admin'] = false;
 			$_SESSION['connected'] = true;
+			
+			//On regarde si on a déja un panier
+			echo $_SESSION['customer_id'];
+			$requete = 'SELECT id FROM orders  WHERE customer_id = ? AND session = ? AND status = 0';
+			$donnees = array(
+				$_SESSION['customer_id'],
+				$_SESSION['id'],
+			);
+			$query = $bdd->prepare($requete);
+			$query->execute($donnees);
+			
+			if ($resultats = $query->fetch(PDO::FETCH_ASSOC)) { //On fusionne le panier temporaire et le panier de client
+				$requete = "UPDATE orderitems SET order_id = ? WHERE order_id = (SELECT id FROM orders WHERE session = ? AND customer_id = 0)";
+				$donnees = array(
+					$resultats['id'],
+					$_SESSION['id'],
+				);
+			
+				$query = $bdd->prepare($requete);
+				$query->execute($donnees);
+				
+				$requete = "DELETE FROM orders WHERE order_id = (SELECT id FROM orders WHERE session = ? AND customer_id = 0)";
+				$donnees = array(
+					$_SESSION['id'],
+				);
+			}
+			else { //On passe le panier temporaire en panier de client
+				$requete = "UPDATE orders SET customer_id = ? WHERE customer_id=0 AND status=0 AND session = ?";
+				$donnees = array(
+					$_SESSION['customer_id'],
+					$_SESSION['id'],
+				);
+				
+				$query = $bdd->prepare($requete);
+				$query->execute($donnees);
+			}
+			
+			header('Location: index.php?page=home');
 		}
-
+		
 	}
 	
 	catch(PDOException $e) //Si le try ne fonctionne pas alors une erreur query est notifié
 	{
-        if(DEBUG)die ('Erreur : '.$e->getMessage());
+		if(DEBUG)die ('Erreur : '.$e->getMessage());
 		
 	}
+	
