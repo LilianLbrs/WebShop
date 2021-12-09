@@ -221,10 +221,27 @@ a:visited {
 }
 
 .delivery > div{
+	background-color: #fbfcfe;
+	box-shadow: 5px 5px 20px #eef0f2;
+	border-radius: 15px;
+}
+
+.delivery > div > div{
 	background-color: white;
-	padding: 5px;
+	padding: 10px;
 	box-shadow: 5px 5px 5px #eef0f2;
 	border-radius: 3px;
+	margin-bottom: 3px;
+	display: flex;
+	/* flex-direction: row; */
+	align-content: center;
+}
+
+.delivery > div > div > label{
+	display: flex;
+	justify-content: space-between;
+	flex: 1;
+	margin-left: 5px;
 }
 
 

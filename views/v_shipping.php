@@ -1,5 +1,4 @@
 <?php require_once(PATH_VIEWS . 'header.php'); ?>
-<?php require_once(PATH_VIEWS . 'menu.php'); ?>
 
 <div class="checkout">
     <div>
@@ -24,8 +23,22 @@
         <div class="delivery">
             <h1>2. Delivery methods</h1>
             <div>
-                <input type="radio" id="delivery" name="delivery" checked>
-                <label for="devlivery">Free shipping</label>
+                <div>
+                    <input type="radio" id="free" name="delivery" checked>
+                    <label for="free">
+                        <p>Free shipping</p>
+                        <p>Free</p>
+                    </label>
+                </div>
+
+                <div>
+                    <input type="radio" id="express" name="delivery">
+                    <label for="express">
+                        <p>Express shipping</p>
+                        <p>5,00€</p>
+                    </label>
+                </div>
+
             </div>
 
         </div>
