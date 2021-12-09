@@ -182,3 +182,50 @@ a:visited {
 	padding-right: 70px;
 }
 
+/** Payment & Shipping*/
+.checkout{
+	display: flex;
+	background-color: #fafcfe;
+}
+
+.checkout > div {
+	width: 50%;
+}
+
+.timer{
+	background-color: #fff5d2;
+	padding: 5px;
+	border: 1.5px solid #e4daa8;
+	border-radius: 3px;
+}
+
+
+.address > form {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+	box-shadow: 5px 5px 5px #eef0f2;
+	border-radius: 3px;
+}
+
+
+.address > form > input{
+	height: 30px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: 1px solid #f1f3f5;
+	padding: 5px;
+	border-radius: 3px;
+}
+
+.delivery > div{
+	background-color: white;
+	padding: 5px;
+	box-shadow: 5px 5px 5px #eef0f2;
+	border-radius: 3px;
+}
+
+
+
