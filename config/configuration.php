@@ -17,3 +17,4 @@ define('PATH_VIEWS','./views/v_');
 //sous dossiers
 define('PATH_CSS', PATH_ASSETS.'css/');
 define('PATH_IMAGES', PATH_ASSETS.'images/');
+define('PATH_BOOTSTRAP', PATH_ASSETS.'bootstrap/css/');
