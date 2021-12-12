@@ -9,23 +9,7 @@
                 <p id="timer" class="ms-1 me-1">10:00</p> minutes.</p>
             </div>
 
-            <script>
-                let minutes = 10
-                let secondes = 0
-                const timerElement = document.getElementById("timer")
 
-                function diminuerTemps() {
-                    if (secondes != 0) secondes--
-                    else {
-                        secondes = 60
-                        minutes--
-                    }
-                    timerElement.innerText = minutes + ":" + secondes
-                }
-
-                if (minutes != 0)
-                    setInterval(diminuerTemps, 1000)
-            </script>
 
             <div class="address mb-3">
                 <p class="fs-5 fw-bolder mb-2">1.Shipping address</p>
@@ -140,7 +124,7 @@
                 </div>
                 <div class="d-flex justify-content-between mb-1">
                     <p class="fw-bolder">Total</p>
-                    <p class="fw-bolder" id="total"><?= $total ?></p>
+                    <p class="fw-bolder" id="total"><?= $total . "€" ?></p>
                 </div>
             </div>
 
@@ -192,6 +176,24 @@
 </div>
 
 <script>
+    let minutes = 10
+    let secondes = 0
+    const timerElement = document.getElementById("timer")
+
+    function diminuerTemps() {
+        if (secondes != 0) secondes--
+        else {
+            secondes = 59
+            minutes--
+        }
+        timerElement.innerText = minutes + ":" + secondes
+    }
+
+    if (minutes != 0)
+        setInterval(diminuerTemps, 1000)
+</script>
+
+<script>
     var radio1 = document.getElementById('free');
     var radio2 = document.getElementById('express');
     var subtotal = document.getElementById("subtotal").innerText;
@@ -210,13 +212,8 @@
 
     var purchase = document.getElementById('purchase');
     purchase.addEventListener("click", function() {
-        var url = "index.php";
-        var req = new XMLHttpRequest();
-        req.open("POST", url);
-
-
-        req.send(JSON.stringify({
-            adresse: "value"
-        }));
+        
+        document.location.href="index.php?page=404";
+        
     });
 </script>
