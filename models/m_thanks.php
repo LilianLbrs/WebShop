@@ -11,11 +11,11 @@ try {
     $alert = 'connexion à la base de données';
 }
 
-//On ajoute la delivery address
-$requete = 'INSERT INTO DELIVERY_ADDRESSES (forename,surname,add1,add2,add3,postcode,phone,email) VALUES ';
+//On récupère l'order
+$requete = "SELECT id, delivery_add_id FROM orders WHERE customer_id = ? AND session= ? AND status = 0";
 $donnees = array(
     $_SESSION['customer_id'],
-    $_SESSION['id'],
+    $_SESSION['id']
 );
 
 try {
@@ -23,17 +23,63 @@ try {
     $query->execute($donnees);
 
     if ($resultats = $query->fetch(PDO::FETCH_ASSOC)) {
-        $order_id = $resultats['id'];
+        $orderId = $resultats['id'];
+        $deliveryId  = $resultats['delivery_add_id'];
     }
 } catch (PDOException $e) //Si le try ne fonctionne pas alors une erreur query est notifié
 {
     if (DEBUG) die('Erreur : ' . $e->getMessage());
 }
 
-//On passe le status de la commande à 2
-try {
-    $requete = 'UPDATE ORDERS SET status = 2 WHERE customer_id = ? AND session= ? AND status = 0)';
+
+if ($deliveryId == null) {
+
+    //On ajoute la delivery address
+    $requete = 'INSERT INTO DELIVERY_ADDRESSES (firstname,lastname,address,city,country,zipcode,phone,email) VALUES (?,?,?,?,?,?,null,?)';
     $donnees = array(
+        $firstname,
+        $lastname,
+        $address,
+        $city,
+        $country,
+        $zipcode,
+        $email,
+    );
+
+    try {
+        $query = $bdd->prepare($requete);
+        $query->execute($donnees);
+    } catch (PDOException $e) //Si le try ne fonctionne pas alors une erreur query est notifié
+    {
+        if (DEBUG) die('Erreur : ' . $e->getMessage());
+    }
+
+    //On récupére l'id 
+    $requete = 'SELECT LAST_INSERT_ID();';
+    $donnees = array();
+
+    try {
+        $query = $bdd->prepare($requete);
+        $query->execute($donnees);
+
+        if ($resultats = $query->fetch(PDO::FETCH_ASSOC)) {
+            $deliveryId  = $resultats["LAST_INSERT_ID()"];
+        }
+
+    } catch (PDOException $e) //Si le try ne fonctionne pas alors une erreur query est notifié
+    {
+        if (DEBUG) die('Erreur : ' . $e->getMessage());
+    }
+
+} 
+
+//On update l'order
+try {
+    $requete = 'UPDATE ORDERS SET status = 2, payment_type= ?, total=?, delivery_add_id=? WHERE customer_id = ? AND session= ? AND status = 0';
+    $donnees = array(
+        $payment,
+        $total,
+        $deliveryId,
         $_SESSION['customer_id'],
         $_SESSION['id']
     );
@@ -42,4 +88,3 @@ try {
 } catch (PDOException $e) {
     if (DEBUG) die('Erreur : ' . $e->getMessage());
 }
-

@@ -199,21 +199,34 @@
     var subtotal = document.getElementById("subtotal").innerText;
     var total = document.getElementById("total");
     var delivery = document.getElementById("delivery");
+    var numtotal= subtotal;
 
     radio1.addEventListener("click", function() {
-        total.innerText = subtotal + "€";
+        numtotal = subtotal;
+        total.innerText = numtotal + "€";
         delivery.innerText = "0€";
     });
 
     radio2.addEventListener("click", function() {
-        total.innerText = (parseFloat(subtotal) + 5) + "€";
+        numtotal = (parseFloat(subtotal) + 5);
+        total.innerText = numtotal + "€";
         delivery.innerText = "5€";
     });
 
     var purchase = document.getElementById('purchase');
     purchase.addEventListener("click", function() {
-        
-        document.location.href="index.php?page=404";
+
+        var email = document.getElementById('email').value;
+        var firstname = document.getElementById('firstname').value;
+        var lastname = document.getElementById('lastname').value;
+        var address = document.getElementById('address').value;
+        var zipcode = document.getElementById('zipcode').value;
+        var city = document.getElementById('city').value;
+        var country = document.getElementById('country').value;
+
+        var payment = "carte";
+
+        document.location.href="index.php?page=thanks&email="+email+"&firstname="+firstname+"&lastname="+lastname+"&address="+address+"&zipcode="+zipcode+"&city="+city+"&country="+country+"&payment="+payment+"&total="+numtotal;
         
     });
 </script>
