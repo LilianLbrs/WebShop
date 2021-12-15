@@ -49,10 +49,36 @@
                 </div>
             </div>
 
+
+
+            <?php
+            if (isset($resultShipping)) {            ?>
+                <div class="d-flex shadow rounded bg-white p-3 mb-3">
+                    <input class="form-check-input me-2" type="checkbox" id="addressRegistered">
+
+                    <div>
+                        <div class="d-flex ">
+                            <p class="fw-bold me-1"><?= $resultShipping['firstname'] ?></p>
+                            <p class="fw-bold me-1"><?= $resultShipping['lastname'] ?></p>
+                        </div>
+
+                        <div class="d-flex">
+                            <p class="me-1"><?= $resultShipping['address'] ?></p>
+                            <p class="me-1"><?= $resultShipping['city'] ?></p>
+                            <p class="me-1"><?= $resultShipping['zipcode'] ?></p>
+                            <p><?= $resultShipping['country'] ?></p>
+                        </div>
+                    </div>
+
+                </div>
+
+            <?php
+            } ?>
+
             <div class="delivery">
                 <p class="fs-5 fw-bolder mb-2">2. Delivery methods</p>
                 <div>
-                    <div class="d-flex shadow rounded mb-1 bg-white p-2">
+                    <div class="d-flex shadow rounded mb-2 bg-white p-3">
                         <input class="form-check-input me-2" type="radio" name="delivery" id="free" checked>
                         <label for="free">
                             <p>Free shipping</p>
@@ -60,8 +86,8 @@
                         </label>
                     </div>
 
-                    <div class="d-flex shadow rounded mb-1 bg-white p-2">
-                        <input class="form-check-input me-2" type="radio" name="delivery" id="express" onclick="">
+                    <div class="d-flex shadow rounded mb-2 bg-white p-3">
+                        <input class="form-check-input me-2" type="radio" name="delivery" id="express">
                         <label for="express">
                             <p>Express shipping</p>
                             <p>5,00€</p>
@@ -155,6 +181,18 @@
                     </div>
                     <img class="imgPayment" src="<?= PATH_IMAGES . "creditCard.png" ?>" alt="">
                 </div>
+
+                <div class="border rounded p-2 mb-2 justify-content-between d-flex">
+
+                    <div>
+                        <input class="form-check-input me-2" type="radio" name="flexRadioPayment" id="check" checked>
+                        <label class="form-check-label" for="check">
+                            Check
+                        </label>
+                    </div>
+                    <img class="imgPayment" src="<?= PATH_IMAGES . "check.png" ?>" alt="">
+                </div>
+
                 <div class="border rounded p-2 mb-2 justify-content-between d-flex">
                     <div>
                         <input class="form-check-input me-2 " type="radio" name="flexRadioPayment" id="paypal">
@@ -196,10 +234,16 @@
 <script>
     var radio1 = document.getElementById('free');
     var radio2 = document.getElementById('express');
+    var radiocard = document.getElementById('creditCard');
+    var radiopaypal = document.getElementById('paypal');
+    var checkAddressRegistered = document.getElementById('addressRegistered');
     var subtotal = document.getElementById("subtotal").innerText;
     var total = document.getElementById("total");
     var delivery = document.getElementById("delivery");
-    var numtotal= subtotal;
+    var numtotal = subtotal;
+    var payment = "carte";
+
+
 
     radio1.addEventListener("click", function() {
         numtotal = subtotal;
@@ -213,20 +257,51 @@
         delivery.innerText = "5€";
     });
 
+    radiocard.addEventListener("click", function() {
+        payment = "carte";
+    });
+
+    radiopaypal.addEventListener("click", function() {
+        payment = "paypal";
+    });
+
     var purchase = document.getElementById('purchase');
     purchase.addEventListener("click", function() {
 
-        var email = document.getElementById('email').value;
-        var firstname = document.getElementById('firstname').value;
-        var lastname = document.getElementById('lastname').value;
-        var address = document.getElementById('address').value;
-        var zipcode = document.getElementById('zipcode').value;
-        var city = document.getElementById('city').value;
-        var country = document.getElementById('country').value;
+        var email;
+        var firstname;
+        var lastname;
+        var address;
+        var zipcode;
+        var city;
+        var country;
 
-        var payment = "carte";
 
-        document.location.href="index.php?page=thanks&email="+email+"&firstname="+firstname+"&lastname="+lastname+"&address="+address+"&zipcode="+zipcode+"&city="+city+"&country="+country+"&payment="+payment+"&total="+numtotal;
-        
+        if (checkAddressRegistered.checked) {
+            email = "<?=$resultShipping['email']?>";
+            firstname = "<?=$resultShipping['firstname']?>";
+            lastname = "<?=$resultShipping['lastname']?>";
+            address = "<?=$resultShipping['address']?>";
+            zipcode = "<?=$resultShipping['zipcode']?>";
+            city = "<?=$resultShipping['city']?>";
+            country = "<?=$resultShipping['country']?>";
+
+
+        } else {
+            email = document.getElementById('email').value;
+            firstname = document.getElementById('firstname').value;
+            lastname = document.getElementById('lastname').value;
+            address = document.getElementById('address').value;
+            zipcode = document.getElementById('zipcode').value;
+            city = document.getElementById('city').value;
+            country = document.getElementById('country').value;
+        }
+
+
+
+
+        if (email != "" && firstname != "" && lastname != "" && address != "" && zipcode != "" && city != "" && country != "")
+            document.location.href = "index.php?page=thanks&email=" + email + "&firstname=" + firstname + "&lastname=" + lastname + "&address=" + address + "&zipcode=" + zipcode + "&city=" + city + "&country=" + country + "&payment=" + payment + "&total=" + numtotal;
+        else window.alert("Please fill all the blank");
     });
 </script>
