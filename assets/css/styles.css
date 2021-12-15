@@ -1,3 +1,8 @@
+body {
+	height: 100%;
+	min-height: 100%;
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -115,6 +120,7 @@ a:visited {
 .bar{
 	background-color: #EEEEEE;
 	width: 20%;
+	min-height: 100%;
 	padding-top: 15px;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -250,3 +256,24 @@ a:visited {
 }
 
 
+/* Footer */
+.footer {
+	height: 70px;
+	background-color: #333333;
+	width: 100%;
+	text-transform: uppercase;
+	color: white;
+	align-items: center;
+	position: relative;
+	bottom: 0;
+	font-size: 30px;
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+}
+
+/* Admin */
+.card {
+	margin: 20px auto;
+	float: none;
+}

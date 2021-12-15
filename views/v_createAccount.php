@@ -64,5 +64,7 @@
 
 			<input type="submit" name="register" value="Creer mon compte">
 		</form>
-	</div>
+
+    </div>
 </div>
+<?php require_once(PATH_VIEWS . 'footer.php'); ?>

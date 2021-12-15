@@ -26,3 +26,4 @@
 
     </div>
 </div>
+<?php require_once(PATH_VIEWS . 'footer.php'); ?>

@@ -305,3 +305,4 @@
         else window.alert("Please fill all the blank");
     });
 </script>
+<?php require_once(PATH_VIEWS . 'footer.php'); ?>

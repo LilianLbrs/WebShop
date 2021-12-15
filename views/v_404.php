@@ -7,4 +7,4 @@
 
 <a href="index.php"><button>GO BACK HOME</button></a>
 
-<?php require_once('./views/v_footer.php'); ?>
+<?php require_once(PATH_VIEWS . 'footer.php'); ?>
