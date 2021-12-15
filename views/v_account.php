@@ -34,3 +34,4 @@
 		<a class="createAccountLink" href="index.php?page=createAccount"> Créer un compte </a>
     </div>
 </div>
+<?php require_once(PATH_VIEWS . 'footer.php'); ?>

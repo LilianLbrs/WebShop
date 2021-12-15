@@ -20,7 +20,7 @@
 	$requete = "SELECT * FROM admin WHERE username = ? and password = ? ";
 	$donnees = array(
 				$username,
-				$password,
+				sha1($password),
 				);
   	
   	
@@ -31,7 +31,7 @@
 		
 		if($resultats = $query->fetch(PDO::FETCH_ASSOC)){
 			header('Location: index.php?page=orders');
-			$_SESSION['amdin_id'] = $username;
+			$_SESSION['admin_id'] = $username;
 			$_SESSION['admin'] = true;
 			$_SESSION['connected'] = true;
 		}

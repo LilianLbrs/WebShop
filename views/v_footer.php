@@ -1,4 +1,4 @@
-	<div class="footer">fdnsfj
+	<div class="footer">©Web4shop
 	</div>
 	</body>
 </html>

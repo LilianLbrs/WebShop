@@ -230,3 +230,4 @@
         
     });
 </script>
+<?php require_once(PATH_VIEWS . 'footer.php'); ?>

@@ -7,8 +7,6 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 
 	//appel du modèle
 	require_once(PATH_MODELS.$page.'.php');
-
-
 }
 
 require_once(PATH_VIEWS.$page.'.php');
