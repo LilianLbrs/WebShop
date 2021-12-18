@@ -17,7 +17,7 @@
 
 
   	//Etape 1 : 
-	$requete = "SELECT p.* FROM PRODUCTS p INNER JOIN CATEGORIES c ON (p.cat_id=c.id) WHERE c.id = ?";
+	$requete = "SELECT p.*, c.name as catname FROM PRODUCTS p INNER JOIN CATEGORIES c ON (p.cat_id=c.id) WHERE c.id = ?";
 	$donnees = array(
 				$categoryId,
 				);
