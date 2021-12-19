@@ -6,9 +6,6 @@ body {
 	color: white;
 }
 
-p{
-	/*color: white;*/
-}
 
 .gris-claire{
 	background-color: #f5f5f5;
@@ -45,8 +42,6 @@ p{
 a:hover{
 	color: white;
 }
-
-
 
 
 
@@ -97,8 +92,27 @@ html, body {
 	height: 2px;
 }
 
+#item > thead{
+	background-color: #EEEEEE;
+}
+
+.description{
+	max-width: fit-content;
+	min-width: -webkit-fill-available;
+}
+
 .imageItemCheckout{
 	width: 70px;
+}
+
+.editcart > *{
+	border-radius: 0;
+}
+
+
+
+#delete:hover ,#delete{
+	color: gray;
 }
 
 
@@ -192,10 +206,10 @@ a:visited {
 }
 
 #product img{
-	height: 300px;
-	width: 300px;
-	padding: 10px;
-	box-shadow: 7px 5px 5px grey;
+	height: 600px;
+	width: 600px;
+	padding: 15px;
+	/* box-shadow: 7px 5px 5px grey; */
 }
 
 #product div{
@@ -216,7 +230,7 @@ a:visited {
 	height: 100px;
 	width: 100px;
 	padding: 10px;
-	box-shadow: 7px 5px 5px grey;
+	/* box-shadow: 7px 5px 5px grey; */
 }
 
 #item td, #item th{

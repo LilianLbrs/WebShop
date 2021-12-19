@@ -13,4 +13,4 @@
 </head>
 
 <body>
-	<div class="header"><a href="index.php">Isiweb4shop</a></div>
+	
