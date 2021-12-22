@@ -119,6 +119,14 @@ td > a, td>a:hover{
 	color: gray;
 }
 
+.grey-link{
+	color: gray;
+}
+
+.grey-link:hover{
+	color: black;
+}
+
 .grey-border{
 	border: 1px solid #EEEEEE;
 }
