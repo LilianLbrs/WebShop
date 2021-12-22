@@ -115,6 +115,14 @@ html, body {
 	color: gray;
 }
 
+td > a, td>a:hover{
+	color: gray;
+}
+
+.grey-border{
+	border: 1px solid #EEEEEE;
+}
+
 
 .content{
 	margin: 40px;
@@ -234,7 +242,21 @@ a:visited {
 }
 
 #item td, #item th{
-	padding-right: 70px;
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+
+.article-checkout{
+	margin-right: -1px;
+	margin-top: -1px;
+	margin-bottom: -1px;
+	
+}
+
+.article-checkout >div{
+	/* padding-right: 52px; */
+	margin-right: 150px;
 }
 
 /** Payment & Shipping*/
