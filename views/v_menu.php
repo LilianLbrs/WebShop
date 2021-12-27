@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-between p-3 bg-black menu">
+<div class="d-flex justify-content-between p-3 bg-white menu">
     <a href="index.php?page=home" class="fs-5">ACCUEIL</a>
 
     <div class="categories">
@@ -20,7 +20,7 @@
 
         }
         ?>
-        <a class="fs-5" href="index.php?page=cart">🛍</a>
+        <a class="fs-5 ms-2" href="index.php?page=cart">🛍</a>
     </div>
 
 </div>

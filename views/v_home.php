@@ -1,17 +1,26 @@
-<?php require_once(PATH_VIEWS.'header.php'); ?>
-<?php require_once(PATH_VIEWS.'menu.php');?>
+<?php require_once(PATH_VIEWS . 'header.php'); ?>
+<?php require_once(PATH_VIEWS . 'menu.php'); ?>
 
-
-
-<div class="home">
-<?php require_once(PATH_VIEWS.'bar.php');?>
-
-
-    <div class="content">
-        <h1>Bienvenue!!</h1>
-        <p>Bienvenue sur <b>ISIWeb4Shop</b>. Cliquez sur la liste de gauche pour découvrir notre offre. Nous avons en stock une large gamme de produits.</p>
-        <p>L'ensemble de ce site est © ISIWeb4Shop 2017-2018</p>
-    </div>
+<div class="container-fluid gris-claire">
+    <p class="fs-1 p-5 font-black fw-bolder">BIENVENUE</p>
 </div>
 
+<div class="container-fluid d-flex flex-wrap justify-content-around">
+    <?php foreach ($resultatsProductHome as $product) {
+    ?>
+
+        <div class="product ms-2 me-2 mb-4 mt-4">
+
+            <div class="position-relative">
+                <a href="index.php?page=products&category=<?= $product['cat_id'] ?>">
+                    <img class="opacity-75" src="<?= PATH_IMAGES . $product['image'] ?>">
+                </a>
+                <p class="bottom-0 start-0 position-absolute fs-3 m-1 "><?=strtoupper($product['name'])?></p>
+            </div>
+
+
+        </div>
+    <?php
+    } ?>
+</div>
 <?php require_once(PATH_VIEWS . 'footer.php'); ?>

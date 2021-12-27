@@ -3,7 +3,7 @@ body {
 }
 
 .menu{
-	color: white;
+	/* color: white; */
 }
 
 
@@ -42,7 +42,7 @@ body {
 }
 
 a:hover{
-	color: white;
+	color: inherit;
 }
 
 
@@ -78,10 +78,7 @@ html, body {
 	font-size: 30px;
 }
 
-.footer {
-	height: 50px;
-	background-color: #858786;
-}
+
 
 .home{
 	display: flex;
@@ -322,8 +319,8 @@ a:visited {
 
 
 /* Footer */
+/*
 .footer {
-	height: 70px;
 	background-color: #333333;
 	width: 100%;
 	text-transform: uppercase;
@@ -335,6 +332,10 @@ a:visited {
 	display: flex;
 	flex-direction: column;
     justify-content: center;
+}*/
+
+.footer img{
+width: 200px;
 }
 
 /* Admin */
