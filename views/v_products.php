@@ -4,7 +4,7 @@
 
 
 <div class="container-fluid gris-claire">
-    <p class="fs-1 p-5 font-black fw-bolder"><?= strtoupper($resultatsProducts[0]['catname']) ?></p>
+    <p class="fs-1 p-5 fw-bolder"><?= strtoupper($resultatsProducts[0]['catname']) ?></p>
 </div>
 
 

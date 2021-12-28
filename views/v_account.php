@@ -8,30 +8,29 @@
 
 
 <div class="home">
-<?php require_once(PATH_VIEWS.'bar.php');?>
 
-
-    <div class="content">
-        <h1>Identification Client</h1>
-        <p>Merci d'entrer votre identifiant et votre mot de passe pour acceder à votre espace client. Si vous n'avez pas de compte client vous pouvez en créer un gratuitement.</p>
+    <div class="container-fluid d-flex align-items-center flex-column">
+        <p class="fs-3 fw-bolder mt-5 mb-4">CONNEXION</p>
+        
 		<?php
 			if(isset($_GET["creation"])) {
 				echo('<p class="successMsg"> Votre compte a été créé avec succès ! </p>');
 			} 
 		?>
-		<form action="index.php?page=account" method="POST">
-		<label>
-			Username 
-			<input type="text" name="username">
+		<form action="index.php?page=account" class="d-flex flex-column" method="POST">
+		<label class="mb-4">
+			PSEUDO: 
+			<input  class="form-control" type="text" name="username">
 		</label>
-		<label>
-			Password
-			<input type="password" name="password">
+		<label class="mb-4">
+			MOT DE PASSE:
+			<input  class="form-control" type="password" name="password">
 		</label>
 
-		<input type="submit" name="login" value="Connexion">
+		<input class="btn btn-dark rounded mb-4" type="submit" name="login" value="SE CONNECTER">
 		</form>
-		<a class="createAccountLink" href="index.php?page=createAccount"> Créer un compte </a>
+		<p class="grey mb-3">Nouveau chez Isiweb4shop? <a class="createAccountLink" href="index.php?page=createAccount"> Créer un compte </a></p>
+		
     </div>
 </div>
 <?php require_once(PATH_VIEWS . 'footer.php'); ?>

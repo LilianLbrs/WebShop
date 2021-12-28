@@ -33,7 +33,7 @@
 			header('Location: index.php?page=orders');
 			$_SESSION['admin_id'] = $username;
 			$_SESSION['admin'] = true;
-			$_SESSION['connected'] = true;
+			$_SESSION['connected'] = false;
 		}
 
 	}

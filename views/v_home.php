@@ -2,7 +2,7 @@
 <?php require_once(PATH_VIEWS . 'menu.php'); ?>
 
 <div class="container-fluid gris-claire">
-    <p class="fs-1 p-5 font-black fw-bolder">BIENVENUE</p>
+    <p class="fs-1 p-5 fw-bolder">BIENVENUE</p>
 </div>
 
 <div class="container-fluid d-flex flex-wrap justify-content-around">
