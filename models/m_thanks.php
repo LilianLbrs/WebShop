@@ -1,5 +1,4 @@
 <?php
-
 // accès base de données
 // connection à la base de données
 try {
@@ -15,7 +14,7 @@ try {
 $requete = "SELECT id, delivery_add_id FROM orders WHERE customer_id = ? AND session= ? AND status = 0";
 $donnees = array(
     $_SESSION['customer_id'],
-    $_SESSION['id']
+    $sessionId
 );
 
 try {
@@ -75,13 +74,14 @@ if ($deliveryId == null) {
 
 //On update l'order
 try {
-    $requete = 'UPDATE ORDERS SET status = 2, payment_type= ?, total=?, delivery_add_id=? WHERE customer_id = ? AND session= ? AND status = 0';
+    $requete = 'UPDATE ORDERS SET status = 2, payment_type= ?, total=?, delivery_add_id=?, delivery_type=? WHERE customer_id = ? AND session= ? AND status = 0';
     $donnees = array(
         $payment,
         $total,
         $deliveryId,
+        $deliveryType,
         $_SESSION['customer_id'],
-        $_SESSION['id']
+        $sessionId
     );
     $query = $bdd->prepare($requete);
     $query->execute($donnees);

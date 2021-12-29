@@ -79,7 +79,7 @@
                 <p class="fs-5 fw-bolder mb-2">2. Delivery methods</p>
                 <div>
                     <div class="d-flex shadow rounded mb-2 bg-white p-3">
-                        <input class="form-check-input me-2" type="radio" name="delivery" id="free" checked>
+                        <input class="form-check-input me-2" type="radio" name="deliveryType" id="free" checked>
                         <label for="free">
                             <p>Free shipping</p>
                             <p>Free</p>
@@ -87,7 +87,7 @@
                     </div>
 
                     <div class="d-flex shadow rounded mb-2 bg-white p-3">
-                        <input class="form-check-input me-2" type="radio" name="delivery" id="express">
+                        <input class="form-check-input me-2" type="radio" name="deliveryType" id="express">
                         <label for="express">
                             <p>Express shipping</p>
                             <p>5,00€</p>
@@ -235,11 +235,12 @@
     var radio1 = document.getElementById('free');
     var radio2 = document.getElementById('express');
     var radiocard = document.getElementById('creditCard');
+    var radiocheck = document.getElementById('check');
     var radiopaypal = document.getElementById('paypal');
     var checkAddressRegistered = document.getElementById('addressRegistered');
     var subtotal = document.getElementById("subtotal").innerText;
     var total = document.getElementById("total");
-    var delivery = document.getElementById("delivery");
+    var deliveryType = document.getElementById("deliveryType");
     var numtotal = subtotal;
     var payment = "carte";
 
@@ -249,16 +250,22 @@
         numtotal = subtotal;
         total.innerText = numtotal + "€";
         delivery.innerText = "0€";
+        deliveryType = "normal";
     });
 
     radio2.addEventListener("click", function() {
         numtotal = (parseFloat(subtotal) + 5);
         total.innerText = numtotal + "€";
         delivery.innerText = "5€";
+        deliveryType = "express";
     });
 
     radiocard.addEventListener("click", function() {
-        payment = "carte";
+        payment = "card";
+    });
+
+    radiocheck.addEventListener("click", function() {
+        payment = "cheque";
     });
 
     radiopaypal.addEventListener("click", function() {
@@ -301,8 +308,8 @@
 
 
         if (email != "" && firstname != "" && lastname != "" && address != "" && zipcode != "" && city != "" && country != "")
-            document.location.href = "index.php?page=thanks&email=" + email + "&firstname=" + firstname + "&lastname=" + lastname + "&address=" + address + "&zipcode=" + zipcode + "&city=" + city + "&country=" + country + "&payment=" + payment + "&total=" + numtotal;
-        else window.alert("Please fill all the blank");
+            document.location.href = "index.php?page=thanks&email=" + email + "&firstname=" + firstname + "&lastname=" + lastname + "&address=" + address + "&zipcode=" + zipcode + "&city=" + city + "&country=" + country + "&payment=" + payment + "&total=" + numtotal + "&deliveryType=" + deliveryType;
+        else window.alert("Please fill all the blanks");
     });
 </script>
 <?php require_once(PATH_VIEWS . 'footer.php'); ?>

@@ -7,10 +7,13 @@ if (isset($_GET['address'])) {
     $city = $_GET['city'];
     $country = $_GET['country'];
     $payment = $_GET['payment'];
+    $deliveryType = $_GET['deliveryType'];
     $email = $_GET['email'];
     $zipcode = $_GET['zipcode'];
     $total = $_GET['total'];
+    $sessionId = $_SESSION['id'];
 
+    $_SESSION['id'] = session_create_id();
     //appel du modèle
     require_once(PATH_MODELS . $page . '.php');
 }
