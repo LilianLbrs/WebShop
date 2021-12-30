@@ -244,7 +244,6 @@
     var payment = "carte";
 
 
-
     radio1.addEventListener("click", function() {
         numtotal = subtotal;
         total.innerText = numtotal + "€";
@@ -266,6 +265,7 @@
     });
 
     var purchase = document.getElementById('purchase');
+    
     purchase.addEventListener("click", function() {
 
         var email;
@@ -277,14 +277,14 @@
         var country;
 
 
-        if (checkAddressRegistered.checked) {
-            email = "<?=$resultShipping['email']?>";
-            firstname = "<?=$resultShipping['firstname']?>";
-            lastname = "<?=$resultShipping['lastname']?>";
-            address = "<?=$resultShipping['address']?>";
-            zipcode = "<?=$resultShipping['zipcode']?>";
-            city = "<?=$resultShipping['city']?>";
-            country = "<?=$resultShipping['country']?>";
+        if (checkAddressRegistered!=null && checkAddressRegistered.checked) {
+            email = "<?php if(isset($resultShipping))echo $resultShipping['email'];?>";
+            firstname = "<?php if(isset($resultShipping))echo $resultShipping['firstname'];?>";
+            lastname = "<?php if(isset($resultShipping))echo $resultShipping['lastname'];?>";
+            address = "<?php if(isset($resultShipping))echo $resultShipping['address'];?>";
+            zipcode = "<?php if(isset($resultShipping))echo $resultShipping['zipcode'];?>";
+            city = "<?php if(isset($resultShipping))echo $resultShipping['city'];?>";
+            country = "<?php if(isset($resultShipping))echo $resultShipping['country'];?>";
 
 
         } else {
