@@ -154,18 +154,19 @@ $pdf->Cell(($pw-40)/3,5,utf8_decode($country),'LBR',1);
 //Total commande
 $pdf->SetY($y);
 //prix des produits
+$totalProducts = $orderPrice - $deliveryPrice;
 $pdf->SetX($pw-30-($pw-40)/3);
 $pdf->Cell(($pw-40)/3,10,"Total produits:",1,0,'R',1);
-$pdf->Cell(20,10,$orderPrice." $",1,1,'L');
+$pdf->Cell(20,10,$totalProducts." $",1,1,'L');
 //prix de la livraison
 $pdf->SetX($pw-30-($pw-40)/3);
 $pdf->Cell(($pw-40)/3,10,utf8_decode("Frais d'expédition:"),1,0,'R',1);
 $pdf->Cell(20,10,$deliveryPrice." $",1,1,'L');
 //Total
 $pdf->SetX($pw-30-($pw-40)/3);
-$total = $orderPrice + $deliveryPrice;
+
 $pdf->Cell(($pw-40)/3,10,utf8_decode("Total:"),1,0,'R',1);
-$pdf->Cell(20,10,$total." $",1,1,'L');
+$pdf->Cell(20,10,$orderPrice." $",1,1,'L');
 
 
 
