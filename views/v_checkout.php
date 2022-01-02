@@ -3,16 +3,16 @@
 <div class="container-fluid pt-2">
     <div class="row checkout">
         <div class="col-7">
-            <p class="fw-bold mb-2">&#128293Strong demand! Complete your order before it's too late!</p>
+            <p class="fw-bold mb-2">&#128293Forte demande! Terminez votre commande avant qu'il ne soit trop tard!</p>
             <div class="timer mb-3 d-flex">
-                <p class="fw-bold ">Your cart is reserved for
+                <p class="fw-bold ">Votre panier est réservé pour 
                 <p id="timer" class="ms-1 me-1">10:00</p> minutes.</p>
             </div>
 
 
 
             <div class="address mb-3">
-                <p class="fs-5 fw-bolder mb-2">1.Shipping address</p>
+                <p class="fs-5 fw-bolder mb-2">1.Adresse de livraison</p>
                 <div class="row form justify-content-center shadow rounded">
                     <div class="row">
                         <input name="email" id="email" type="text" placeholder="Email" class="form-control">
@@ -76,20 +76,20 @@
             } ?>
 
             <div class="delivery">
-                <p class="fs-5 fw-bolder mb-2">2. Delivery methods</p>
+                <p class="fs-5 fw-bolder mb-2">2. Modes de livraison</p>
                 <div>
                     <div class="d-flex shadow rounded mb-2 bg-white p-3">
                         <input class="form-check-input me-2" type="radio" name="deliveryType" id="free" checked>
                         <label for="free">
-                            <p>Free shipping</p>
-                            <p>Free</p>
+                            <p>Livraison gratuite</p>
+                            <p>Gratuit</p>
                         </label>
                     </div>
 
                     <div class="d-flex shadow rounded mb-2 bg-white p-3">
                         <input class="form-check-input me-2" type="radio" name="deliveryType" id="express">
                         <label for="express">
-                            <p>Express shipping</p>
+                            <p>Livraison express</p>
                             <p>5,00€</p>
                         </label>
                     </div>
@@ -103,7 +103,7 @@
 
 
         <div class="col-5">
-            <p class="fs-5 fw-bolder mb-2">Order Summary</p>
+            <p class="fs-5 fw-bolder mb-2">Récapitulatif de la commande</p>
 
             <div class=" container bg-white rounded-top shadow d-flex flex-column pt-3 pb-3 mb-1">
                 <div>
@@ -137,7 +137,7 @@
             </div>
             <div class="container bg-white shadow d-flex flex-column pt-3 pb-3 mb-1">
                 <div class="d-flex justify-content-between mb-1 mt-1">
-                    <p>Subtotal</p>
+                    <p>Sous-total</p>
                     <div class="d-flex">
                         <p id="subtotal"><?= $total ?></p>
                         <p>€</p>
@@ -145,7 +145,7 @@
 
                 </div>
                 <div class="d-flex justify-content-between mb-1">
-                    <p>Delivery</p>
+                    <p>Livraison</p>
                     <p id="delivery">0€</p>
                 </div>
                 <div class="d-flex justify-content-between mb-1">
@@ -163,20 +163,20 @@
 
                     </div>
                     <div class="col-2 pe-0 ">
-                        <button type="button" class="btn btn-secondary" disabled>Apply</button>
+                        <button type="button" class="btn btn-secondary" disabled>Appliquer</button>
 
                     </div>
                 </div>
             </div>
 
             <div class="container bg-white rounded-bottom shadow d-flex flex-column pt-3 pb-3 ">
-                <p class="fs-5 fw-bolder mb-2">4. Payment methods</p>
+                <p class="fs-5 fw-bolder mb-2">4. Modes de paiement</p>
                 <div class="border rounded p-2 mb-2 justify-content-between d-flex">
 
                     <div>
                         <input class="form-check-input me-2" type="radio" name="flexRadioPayment" id="creditCard" checked>
                         <label class="form-check-label" for="creditCard">
-                            Credit Card
+                            Cart de crédit
                         </label>
                     </div>
                     <img class="imgPayment" src="<?= PATH_IMAGES . "creditCard.png" ?>" alt="">
@@ -187,7 +187,7 @@
                     <div>
                         <input class="form-check-input me-2" type="radio" name="flexRadioPayment" id="check" checked>
                         <label class="form-check-label" for="check">
-                            Check
+                            Cheque
                         </label>
                     </div>
                     <img class="imgPayment" src="<?= PATH_IMAGES . "check.png" ?>" alt="">
@@ -204,11 +204,11 @@
                     <img class="imgPayment" src="<?= PATH_IMAGES . "paypal.png" ?>" alt="">
 
                 </div>
-                <button type="button" class="btn btn-primary" id="purchase">Complete Purchase</button>
+                <button type="button" class="btn btn-primary" id="purchase">Finaliser l'achat</button>
 
             </div>
 
-            <p class="fw-bolder mt-4 text-center">🔒 Transaction secured over SSL</p>
+            <p class="fw-bolder mt-4 text-center">🔒 Transaction sécurisée via SSL</p>
         </div>
     </div>
 </div>
@@ -245,7 +245,6 @@
     var payment = "carte";
 
 
-
     radio1.addEventListener("click", function() {
         numtotal = subtotal;
         total.innerText = numtotal + "€";
@@ -273,6 +272,7 @@
     });
 
     var purchase = document.getElementById('purchase');
+    
     purchase.addEventListener("click", function() {
 
         var email;
@@ -284,14 +284,14 @@
         var country;
 
 
-        if (checkAddressRegistered.checked) {
-            email = "<?=$resultShipping['email']?>";
-            firstname = "<?=$resultShipping['firstname']?>";
-            lastname = "<?=$resultShipping['lastname']?>";
-            address = "<?=$resultShipping['address']?>";
-            zipcode = "<?=$resultShipping['zipcode']?>";
-            city = "<?=$resultShipping['city']?>";
-            country = "<?=$resultShipping['country']?>";
+        if (checkAddressRegistered!=null && checkAddressRegistered.checked) {
+            email = "<?php if(isset($resultShipping))echo $resultShipping['email'];?>";
+            firstname = "<?php if(isset($resultShipping))echo $resultShipping['firstname'];?>";
+            lastname = "<?php if(isset($resultShipping))echo $resultShipping['lastname'];?>";
+            address = "<?php if(isset($resultShipping))echo $resultShipping['address'];?>";
+            zipcode = "<?php if(isset($resultShipping))echo $resultShipping['zipcode'];?>";
+            city = "<?php if(isset($resultShipping))echo $resultShipping['city'];?>";
+            country = "<?php if(isset($resultShipping))echo $resultShipping['country'];?>";
 
 
         } else {

@@ -315,25 +315,11 @@ a:visited {
 
 
 .imgPayment{
-	width: 100px;
+	height: 22px;
 }
 
 
-/* Footer */
-/*
-.footer {
-	background-color: #333333;
-	width: 100%;
-	text-transform: uppercase;
-	color: white;
-	align-items: center;
-	position: relative;
-	bottom: 0;
-	font-size: 30px;
-	display: flex;
-	flex-direction: column;
-    justify-content: center;
-}*/
+
 
 footer img{
 width: 200px;

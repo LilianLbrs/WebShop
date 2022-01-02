@@ -12,10 +12,10 @@
         <?php
         if ($_SESSION['connected'] == true) { ?>
             <p class="fs-5">Bonjour <?= $_SESSION['name'] ?></p>
-            <a href="index.php?page=logout">LOGOUT</a>
+            <a href="index.php?page=logout">SE DÉCONNECTER</a>
         <?php
         } else { ?>
-            <a class="fs-5" href="index.php?page=account">LOGIN</a>
+            <a class="fs-5" href="index.php?page=account">CONNEXION</a>
         <?php
 
         }

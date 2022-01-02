@@ -75,7 +75,7 @@
 
         <div class="d-flex justify-content-between align-items-center">
             <img src="<?= PATH_IMAGES . "creditCard.png" ?>" alt="">
-            <a type="button" class="btn btn-dark rounded" href="index.php?page=shipping"> Aller à la caisse</a>
+            <a type="button" class="btn btn-dark rounded" href="index.php?page=checkout"> Aller à la caisse</a>
         </div>
 
     <?php

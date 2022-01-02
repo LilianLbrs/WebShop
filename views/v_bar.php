@@ -11,12 +11,13 @@
     <div class="divider"></div>
 
     <?php
-    if ($_SESSION['connected'] == true) {?>
-    <p>Bonjour <?=$_SESSION['name']?></p>
-    <a href="index.php?page=logout">Logout</a>
+    if ($_SESSION['connected'] == true) { ?>
+        <p>Bonjour <?= $_SESSION['name'] ?></p>
+        <a href="index.php?page=logout">
+            Se déconnecter</a>
     <?php
     } else { ?>
-        <a href="index.php?page=account">Login</a>
+        <a href="index.php?page=account">Connexion</a>
     <?php
 
     }
