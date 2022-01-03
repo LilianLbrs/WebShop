@@ -1,7 +1,7 @@
 <?php
 
 //appel du modèle
-require_once(PATH_MODELS . 'bar.php');
+require_once(PATH_MODELS . 'navbar.php');
 
 if (isset($_GET['product'])) {
     $productId = htmlspecialchars($_GET['product']);

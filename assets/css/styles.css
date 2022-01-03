@@ -99,6 +99,7 @@ html, body {
 
 .imageItemCheckout{
 	width: 70px;
+	height: auto;
 }
 
 .editcart > *{

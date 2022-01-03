@@ -5,7 +5,7 @@ if(isset($_GET['category'])){
 	$categoryId = htmlspecialchars($_GET['category']);
 
 	//appel du modèle
-    require_once(PATH_MODELS.'bar.php');
+    require_once(PATH_MODELS.'navbar.php');
 	require_once(PATH_MODELS.$page.'.php');
 
     //appel de la vue

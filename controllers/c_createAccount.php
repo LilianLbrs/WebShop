@@ -19,5 +19,5 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['firs
     //appel du modèle
     require_once(PATH_MODELS . $page . '.php');
 }
-require_once(PATH_MODELS . 'bar.php');
+require_once(PATH_MODELS . 'navbar.php');
 require_once(PATH_VIEWS . $page . '.php');

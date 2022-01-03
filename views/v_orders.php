@@ -14,12 +14,9 @@
 		<tr>
 			<th scope="col">order id</th>
 			<th scope="col">customer id</th>
-			<th scope="col">registered</th>
-			<th scope="col">delivery address id</th>
 			<th scope="col">payment type</th>
 			<th scope="col">date</th>
 			<th scope="col">status</th>
-			<th scope="col">session</th>
 			<th scope="col">total</th>
 		</tr>
 	</thead>
@@ -30,13 +27,12 @@
 			<tr>
 				<td><a href=""><?= $res['id'] ?></a></td>
 				<td><?= $res['customer_id'] ?></td>
-				<td><?= $res['registered'] ?></td>
-				<td><?= $res['delivery_add_id'] ?></td>
 				<td><?= $res['payment_type'] ?></td>
 				<td><?= $res['date'] ?></td>
 				<td><?= $res['status'] ?></td>
-				<td><?= $res['session'] ?></td>
-				<td><?= $res['total'] ?></td>
+				<td><?= $res['total'] ?> €</td>
+				<td><a class="btn btn-primary" href="index.php?page=order&order_id=<?= $res['id'] ?>">Voir commande</a></td>
+				<td><a class="btn btn-secondary" href="" >Valider commande</a></td>
 			</tr>
 		<?php
 		}

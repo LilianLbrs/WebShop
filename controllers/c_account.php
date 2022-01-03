@@ -9,7 +9,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 	require_once(PATH_MODELS.$page.'.php');
 
 }
-require_once(PATH_MODELS.'bar.php');
+require_once(PATH_MODELS.'navbar.php');
 require_once(PATH_VIEWS.$page.'.php');
 
 
