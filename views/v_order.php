@@ -79,7 +79,9 @@
 				</tr>
 				<?php } ?>
 				<tr class="grey-border">
-                    <td class="d-flex justify-content-center"><a class="btn btn-success m-2 " href="">Valider la commande</a></td>
+					<?php if ($resultatsOrder[0]['status'] != 10) { ?>
+						<td class="d-flex justify-content-center"><a class="btn btn-success m-2 " href="index.php?page=valider&id=<?=$item['orderId'] ?>">Valider la commande</a></td>
+					<?php } ?>
 					<td class="d-flex justify-content-center"><a class="btn btn-secondary m-2 " href="http://localhost/web-shop/index.php?page=orders">Retour à la liste des commandes</a></td>
                     <td>
                         <p class=" fw-bolder fs-5"> TOTAL</p>

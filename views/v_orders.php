@@ -9,15 +9,17 @@
 
 <div class="divider"></div>
 
-<table class="table">
+<div class="m-5">
+	
+<table class="table table-striped">
 	<thead>
 		<tr>
-			<th scope="col">order id</th>
-			<th scope="col">customer id</th>
-			<th scope="col">payment type</th>
-			<th scope="col">date</th>
-			<th scope="col">status</th>
-			<th scope="col">total</th>
+			<th class="text-center" scope="col">ORDER ID</th>
+			<th class="text-center" scope="col">CUSTOMER ID</th>
+			<th class="text-center" scope="col">PAYMENT</th>
+			<th class="text-center" scope="col">DATE</th>
+			<th class="text-center" scope="col">STATUS</th>
+			<th class="text-center" scope="col">TOTAL</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -25,18 +27,19 @@
 		foreach ($resultatsOrders as $res) {
 		?>
 			<tr>
-				<td><a href=""><?= $res['id'] ?></a></td>
-				<td><?= $res['customer_id'] ?></td>
-				<td><?= $res['payment_type'] ?></td>
-				<td><?= $res['date'] ?></td>
-				<td><?= $res['status'] ?></td>
-				<td><?= $res['total'] ?> €</td>
-				<td><a class="btn btn-primary" href="index.php?page=order&order_id=<?= $res['id'] ?>">Voir commande</a></td>
-				<td><a class="btn btn-secondary" href="" >Valider commande</a></td>
+				<td class="text-center"><a href=""><?= $res['id'] ?></a></td>
+				<td class="text-center"><?= $res['customer_id'] ?></td>
+				<td class="text-center"><?= $res['payment_type'] ?></td>
+				<td class="text-center"><?= $res['date'] ?></td>
+				<td class="text-center"><?= $res['status'] ?></td>
+				<td class="text-center"><?= $res['total'] ?> €</td>
+				<td class="text-center"><a class="btn btn-dark" href="index.php?page=order&order_id=<?= $res['id'] ?>">Voir commande</a></td>
 			</tr>
 		<?php
 		}
 		?>
 	</tbody>
 </table>
+</div>
+
 <?php require_once(PATH_VIEWS . 'footer.php'); ?>

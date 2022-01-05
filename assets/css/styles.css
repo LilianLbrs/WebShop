@@ -128,6 +128,9 @@ td > a, td>a:hover{
 	border: 1px solid #EEEEEE;
 }
 
+.bg-grey{
+	background-color: #EEEEEE;
+}
 
 .content{
 	margin: 40px;

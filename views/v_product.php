@@ -27,4 +27,28 @@
 
 </div>
 
+<div class="d-flex justify-content-center flex-wrap">
+    
+<?php 
+
+foreach($reviewProduct as $review){
+    ?>
+
+<div class="bg-grey m-2 p-2 rounded w-25">
+<div class="d-flex justify-content-between">
+    <p class="fw-bolder"><?=$review['title']?></p>
+    <p><?=$review['name_user']?></p>
+</div>
+<!-- <img src="<?= PATH_IMAGES."review_star.png"?>" alt="">
+<img src="<?= PATH_IMAGES."review_gray.png"?>" alt="">
+-->
+<p><?=$review['description']?></p>
+</div>
+
+<?php
+}
+
+?>
+</div>
+
 <?php require_once(PATH_VIEWS . 'footer.php'); ?>
