@@ -176,7 +176,7 @@
                     <div>
                         <input class="form-check-input me-2" type="radio" name="flexRadioPayment" id="creditCard" checked>
                         <label class="form-check-label" for="creditCard">
-                            Cart de crédit
+                            Carte de crédit
                         </label>
                     </div>
                     <img class="imgPayment" src="<?= PATH_IMAGES . "creditCard.png" ?>" alt="">
@@ -185,7 +185,7 @@
                 <div class="border rounded p-2 mb-2 justify-content-between d-flex">
 
                     <div>
-                        <input class="form-check-input me-2" type="radio" name="flexRadioPayment" id="check" checked>
+                        <input class="form-check-input me-2" type="radio" name="flexRadioPayment" id="check">
                         <label class="form-check-label" for="check">
                             Cheque
                         </label>
@@ -240,8 +240,8 @@
     var checkAddressRegistered = document.getElementById('addressRegistered');
     var subtotal = document.getElementById("subtotal").innerText;
     var total = document.getElementById("total");
-    var deliveryType = document.getElementById("deliveryType");
     var numtotal = subtotal;
+    var deliveryType = "standard";
     var payment = "carte";
 
 
@@ -249,7 +249,7 @@
         numtotal = subtotal;
         total.innerText = numtotal + "€";
         delivery.innerText = "0€";
-        deliveryType = "normal";
+        deliveryType = "standard";
     });
 
     radio2.addEventListener("click", function() {
@@ -260,7 +260,7 @@
     });
 
     radiocard.addEventListener("click", function() {
-        payment = "card";
+        payment = "carte";
     });
 
     radiocheck.addEventListener("click", function() {

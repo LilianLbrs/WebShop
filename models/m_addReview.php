@@ -15,9 +15,13 @@ catch(PDOException $e)
 
 
 //Actualiser le statut de la commande
-$requete = "UPDATE orders SET status = 10 WHERE id=?";
+$requete = "INSERT INTO reviews VALUES(?,?,?,?,?)";
 $donnees = array(
-	$orderId
+	$productId,
+	$name,
+	$stars,
+	$title,
+	$review
 );
 
 

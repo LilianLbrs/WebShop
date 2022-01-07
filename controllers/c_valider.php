@@ -2,7 +2,7 @@
 
 if ($_SESSION['admin']) {
 	//appel du modèle
-	$orderId = $_GET['id'];
+	$orderId = htmlspecialchars($_GET['id']);
 	require_once(PATH_MODELS.$page.'.php');
 	header("Location: ./index.php?page=order&order_id=$orderId");
 } else {
