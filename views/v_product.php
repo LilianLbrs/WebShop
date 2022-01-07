@@ -39,16 +39,35 @@ foreach($reviewProduct as $review){
     <p class="fw-bolder"><?=$review['title']?></p>
     <p><?=$review['name_user']?></p>
 </div>
-<!-- <img src="<?= PATH_IMAGES."review_star.png"?>" alt="">
-<img src="<?= PATH_IMAGES."review_gray.png"?>" alt="">
--->
+<div class="d-flex ">
+    <?php 
+    for($i = 0; $i<$review['stars']; $i++) { ?>
+        <img class="review-stars" src="<?= PATH_IMAGES."review_star.png"?>" alt="">
+    <?php }
+    for($i = 0; $i<5-$review['stars']; $i++) { ?>
+        <img class="review-stars" src="<?= PATH_IMAGES."review_gray.png"?>" alt="">
+    <?php } ?>
+    </div>
 <p><?=$review['description']?></p>
 </div>
 
 <?php
 }
-
 ?>
+
+</div>
+<div class="bg-grey d-flex flex-col">
+    <form>
+        <label>Prénom: <input type="text" name="prenom" class="form-control" placeholder="Prénom"></label>
+        <div class="form-group">
+            <label>Titre: <input type="text"  class="form-control" name="titre" placeholder="Titre"></label>
+            <label>Note: <input type="number"  class="form-control" name="stars" value=5 min=1 max=5></label>
+        </div>
+        <label >Avis: <textarea name="avis" class="form-control" placeholder="Description"></textarea></label>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary rounded">Publier</button>
+        </div>
+    </form>
 </div>
 
 <?php require_once(PATH_VIEWS . 'footer.php'); ?>

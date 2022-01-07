@@ -163,6 +163,11 @@ a:visited {
 	/* box-shadow: 7px 5px 5px grey; */
 }
 
+.review-stars {
+	width: 15px;
+	height: 15px;
+}
+
 
 /** Bar **/
 
