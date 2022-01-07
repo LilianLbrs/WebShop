@@ -56,15 +56,15 @@ foreach($reviewProduct as $review){
 ?>
 
 </div>
-<div class="bg-grey d-flex flex-col">
-    <form>
+<div class="d-flex justify-content-center">
+    <form class="bg-grey w-25 d-flex flex-column rounded p-2 m-4">
         <label>Prénom: <input type="text" name="prenom" class="form-control" placeholder="Prénom"></label>
-        <div class="form-group">
+        <div class="form-group d-flex justify-content-between">
             <label>Titre: <input type="text"  class="form-control" name="titre" placeholder="Titre"></label>
             <label>Note: <input type="number"  class="form-control" name="stars" value=5 min=1 max=5></label>
         </div>
         <label >Avis: <textarea name="avis" class="form-control" placeholder="Description"></textarea></label>
-        <div class="form-group">
+        <div class="form-group align-self-center">
             <button type="submit" class="btn btn-primary rounded">Publier</button>
         </div>
     </form>
