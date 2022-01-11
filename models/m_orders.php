@@ -17,7 +17,7 @@
 
 
   	//Etape 1 : 
-	$requete = "SELECT id, customer_id, payment_type, date, status, delivery_type, total FROM orders ORDER BY date DESC";
+	$requete = "SELECT id, customer_id, payment_type, date, status, delivery_type, total FROM orders WHERE status != 0 ORDER BY id DESC";
 	$donnees = array();
   	
   	

@@ -1,5 +1,5 @@
 <?php require_once(PATH_VIEWS . 'header.php'); ?>
-<?php require_once(PATH_VIEWS . 'menu.php'); ?>
+<?php require_once(PATH_VIEWS . 'navbar.php'); ?>
 
 <div class="container-fluid gris-claire">
     <p class="fs-1 p-5 fw-bolder">BIENVENUE</p>

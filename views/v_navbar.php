@@ -1,27 +1,28 @@
-<div class="bar">
-    <p><b>NOTRE OFFRE</b></p>
-    <ul>
-        <?php foreach ($resultatsCategories as $categorie) {
-            echo '<li>';
-            echo '<a href="index.php?page=products&category=' . $categorie['id'] . '">' . $categorie['name'] . '</a>';
-            echo '</li>';
+<div class="d-flex justify-content-between p-3 bg-white menu">
+    <a href="index.php?page=home" class="fs-5">ACCUEIL</a>
+
+    <div class="categories">
+        <?php foreach ($resultatsCategories as $categorie) { ?>
+            <a class="fs-5 ms-2 me-2" href="<?= 'index.php?page=products&category=' . $categorie['id'] ?>"> <?= strtoupper($categorie['name']) ?> </a>
+        <?php
         } ?>
-    </ul>
+    </div>
 
-    <div class="divider"></div>
+    <div >
+        <?php
+        if ($_SESSION['connected'] == true) { ?>
+            <p class="fs-5">Bonjour <?= $_SESSION['name'] ?></p>
+            <a href="index.php?page=logout">SE DÉCONNECTER</a>
+        <?php
+        } else { ?>
+            <a class="fs-5" href="index.php?page=account">CONNEXION</a>
+        <?php
 
-    <?php
-    if ($_SESSION['connected'] == true) { ?>
-        <p>Bonjour <?= $_SESSION['name'] ?></p>
-        <a href="index.php?page=logout">
-            Se déconnecter</a>
-    <?php
-    } else { ?>
-        <a href="index.php?page=account">Connexion</a>
-    <?php
-
-    }
-    ?>
-
+        }
+        ?>
+        <a class="fs-5 ms-2" href="index.php?page=cart"><img class="cartImg" alt="" src="<?=PATH_IMAGES?>cart.png"></a>
+    </div>
 
 </div>
+
+<div class="divider"></div>

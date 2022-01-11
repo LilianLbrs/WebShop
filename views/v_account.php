@@ -1,5 +1,5 @@
 <?php require_once(PATH_VIEWS.'header.php');?>
-<?php require_once(PATH_VIEWS.'menu.php');?>
+<?php require_once(PATH_VIEWS.'navbar.php');?>
 
 
 <!--  Début de la page -->
