@@ -18,3 +18,4 @@ define('PATH_VIEWS','./views/v_');
 define('PATH_CSS', PATH_ASSETS.'css/');
 define('PATH_IMAGES', PATH_ASSETS.'images/');
 define('PATH_BOOTSTRAP', PATH_ASSETS.'bootstrap/css/');
+define('PATH_JS', PATH_ASSETS.'js/');
