@@ -46,7 +46,7 @@ Ce un site de e-commerce qui propose différentes options:
 
 # Organisation du travail
 
-    Pour ce projet, nous avons utilisé la base d'un projet de site web réalisé en MVC que Sacha avait 
+    Pour ce projet, nous avons utilisé la structure d'un projet de site web réalisé en MVC que Sacha avait 
     réalisé l'année dernière. Nous avons ensuite commencé à faire le site web ensemble en cours de WEB.
     Par la suite nous avons travaillé chacun de notre côté sur les différentes pages qu'il fallait ajouter
     en commençant par l'affichage des produits, puis la connexion à un compte, la gestion des paniers, la 
