@@ -3,7 +3,7 @@
 Ce site web a été réalisé dans le cadre de l'UE "ISI1 WEB" de l'école Polytech Lyon.
 
 # Video de présentation : 
-![](WebShop-presentation.gif)
+![](webshop-presentation.gif)
 
 # Description
 
