@@ -2,11 +2,14 @@
 
 Ce site web a été réalisé dans le cadre de l'UE "ISI1 WEB" de l'école Polytech Lyon.
 
+# Video de présentation : 
+![](WebShop-presentation.gif)
+
 # Description
 
 Ce un site de e-commerce qui propose différentes options:
 
-        #Client
+        Client :
     - Vous pouvez décider de vous connecter sur le site, si vous n'avez pas de compte
     un lien pour se créer un compte est disponible sur la page de connexion. La connexion
     à un compte permet de ne pas perdre votre panier courant si vous quittez le site, mais
@@ -31,7 +34,7 @@ Ce un site de e-commerce qui propose différentes options:
     - Vous arrivez sur la page qui vous remercie pour votre achat, vous avez ici accès à votre 
     facture que vous pouvez télecharger au format pdf.
 
-        #Administrateur
+        Administrateur :
     - Pour accéder au panneau d'administration il faut entrer l'URL : "index.php?page=admin"
     - Vous arrivez sur une page de connexion? Pour la démonstration nous avons créé un profil 
     administrateur :  login = "admin", password = "secret".
@@ -42,23 +45,3 @@ Ce un site de e-commerce qui propose différentes options:
     - Vous arrivez ainsi sur le gestionnaire de commande avec le détail de la commande sélectionnée, 
     ainsi qu'un bouton pour valider la commande si cela n'a pas déja été fait. Le statut de la commande 
     passe ainsi à 10.
-
-
-# Organisation du travail
-
-    Pour ce projet, nous avons utilisé la structure d'un projet de site web réalisé en MVC que Sacha avait 
-    réalisé l'année dernière. Nous avons ensuite commencé à faire le site web ensemble en cours de WEB.
-    Par la suite nous avons travaillé chacun de notre côté sur les différentes pages qu'il fallait ajouter
-    en commençant par l'affichage des produits, puis la connexion à un compte, la gestion des paniers, la 
-    page de paiement, la facture en utilisant "fpdf.php", et enfin les fonctionnalités administrateur.
-
-
-# Difficultés rencontrées
-
-    Lors du développement de ISI Web Shop nous avons rencontré quelques difficultés, que nous avons réussi
-    a surmonté:
-        - La gestion du panier avec l'ID de session et l'ID customer, nottament afin de n'avoir qu'un seul
-    panier par utilisateur.
-        - La gestion du cas ou un utilisateur crée un panier puis se connecte alors qu'il avait déjà un 
-        panier enregistré. Nous avons décidé dans ce cas là de fusionner le panier temporaire de l'utili- 
-        sateur avec celui qu'il qu'il avait déjà avec son compte.
